@@ -3,16 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpascual <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/14 17:08:48 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/14 20:07:41 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void    ft_putscape(char c)
+int     mod_putchar(char c)
+{
+    struct variables    var;
+    
+    if (c == '%' || c == '\\')
+        return (0);
+    else
+    {
+        putchar(c);
+        var.printed_chars++;
+        return (1);
+    }
+}
+
+void    put_scape(char c)
 {
     struct variables var;
 
@@ -23,7 +37,10 @@ void    ft_putscape(char c)
     else if (c == 't')
         write(1, "\t", 1);
     else
+    {
         ft_putstr("Error\nInvalid scape character");
+        var.error = TRUE;
+    }        
 }
 
 int     ft_nbrlen(int nb, int base_len)
