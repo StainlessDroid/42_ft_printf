@@ -6,11 +6,16 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/14 20:24:13 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/15 19:17:27 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+/*
+** The pointer to a character pointer (format) has to be incremented by 1
+** at the end of the function (alredy there if '0' of '.')
+*/
 
 find_flags(const char *format)
 {
@@ -19,14 +24,16 @@ find_flags(const char *format)
     if (ft_is_digit(*format))
     {
         if (*format == 0)
-            var.zero == TRUE;
+            var.zero = TRUE;
         else
-        {
-            //get the width
-        }
+            var.width = (get_number(++format));
     }
     else if (*format == '-')
-        var.minus == TRUE;
+        var.minus = TRUE;
+    else if (*format == '*')    //this is going to be a bit of a headache
+        var.asterisk = TRUE;
+    else if (*format == '.')
+        var.precision = (get_number(++format));
     else
     {
         putstr("ERROR\nInvalid flags\n");
@@ -70,13 +77,16 @@ int     ft_printf(const char *format, ...)
         {
             if (*format == '%')
             {
-                find_flags(format);
+                find_flags(++format);
                 if (var.error)
                     return (-1);
                 check_type(*format, arg);
             }
             else
+            {
+                format++;
                 put_scape(*format);
+            }
         }
         else
             format++;

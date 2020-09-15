@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
+/*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/14 17:08:59 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 18:59:22 by mpascual         ###   ########.fr       */
+/*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
+/*   Updated: 2020/09/15 18:39:49 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void init_flags(void)
+int     print_x(unsigned int nb, bool mayus)
 {
-	struct variables	var;
+    unsigned int        i;
+    struct variables    var;
 
-	var.printed_chars = 0;
-	var.precision = 0;
-	var.width = 0;
-	var.minus = FALSE;
-	var.zero = FALSE;
-	var.point = FALSE;
-	var.asterisk = FALSE;
-	var.error = FALSE;
+    i = ft_itohex(nb, FALSE);
+    var.printed_chars += i;
+    return (i);
 }
 
-int     is_flag(char c)
+int     print_X(unsigned int nb, bool mayus)
 {
-    if (c == '-' || c == '0' || c == '.' || c == '*')
-        return (1);
-    else
-        return (0);    
+    unsigned int        i;
+    struct variables    var;
+
+    i = ft_itohex(nb, TRUE);
+    var.printed_chars += i;
+    return (i);
 }

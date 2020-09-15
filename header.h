@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/14 20:07:40 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/15 18:58:59 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@
 
 struct		variables
 {
-	unsigned int printed_chars;
+	unsigned int	printed_chars;
 	unsigned int	width;
 	unsigned int	precision;
 	bool			flag;
 	bool			zero;
 	bool			minus;
 	bool			point;
+	bool			asterisk;
 	bool			error;
 
 };
@@ -31,10 +32,9 @@ struct		variables
 int			ft_printf(const char *format, ...);
 void        init_flags(void);
 int			mod_putchar(char c);
-int			ft_nbrlen(int nb, int base_len);
+int			is_flag(char c);
 void		put_scape(char c);
-int			ft_itohex(unsigned int nb, bool mayus);
-int			find_flags(const char *str);
+int			find_flags(const char *format);
 void		check_type(const char c, va_list arg);
 int			print_c(char c);
 int			print_s(char *str);
@@ -42,5 +42,6 @@ int			print_di(int nb);
 int			print_u(unsigned int nb);
 int			print_p(unsigned long ptr);
 int			print_x(unsigned int nb, bool mayus);
+int			ft_itohex(unsigned int nb, bool mayus);
 
 #endif

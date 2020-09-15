@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mpascual <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/14 17:01:42 by mpascual          #+#    #+#              #
-#    Updated: 2020/09/14 17:02:28 by mpascual         ###   ########.fr        #
+#    Updated: 2020/09/15 17:33:11 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/ft_printf.c src/utils.c
+SRC = src/ft_printf.c src/utils.c src/flags.c
 
 OBJS = $(SRC:.c=.o)
 

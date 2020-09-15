@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/14 20:07:41 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/15 19:27:11 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     mod_putchar(char c)
+int             mod_putchar(char c)
 {
     struct variables    var;
     
@@ -26,7 +26,7 @@ int     mod_putchar(char c)
     }
 }
 
-void    put_scape(char c)
+void            put_scape(char c)
 {
     struct variables var;
 
@@ -43,29 +43,18 @@ void    put_scape(char c)
     }        
 }
 
-int     ft_nbrlen(int nb, int base_len)
+/*
+unsigned int    get_number(char *str)
 {
-    unsigned int n_digits;
-    bool         neg;
-
-    neg = nb < 0 ? TRUE : FALSE;
-    n_digits = 0;
-    while (nb / base_len > 0)
-    {
-        n_digits++;
-        nb /= base_len;
-    }
-    if (neg)
-        n_digits++;
-    return (n_digits);
 }
+*/
 
 /*
 ** ft_itohex requires a boolean parameter to specify if the alphabetic
 ** characters of the hex number are mayus
 */
 
-int     ft_itohex(unsigned int nb, bool  mayus)
+int             ft_itohex(unsigned int nb, bool  mayus)
 {
     unsigned int   num;
     unsigned int    l;
