@@ -12,7 +12,7 @@
 
 #include "../header.h"
 
-int             mod_putchar(char c)
+int    mod_putchar(char c)
 {
     struct variables    var;
     
@@ -26,7 +26,7 @@ int             mod_putchar(char c)
     }
 }
 
-void            put_scape(char c)
+void   put_scape(char c)
 {
     struct variables var;
 
@@ -43,18 +43,37 @@ void            put_scape(char c)
     }        
 }
 
-/*
-unsigned int    get_number(char *str)
+
+int    get_number(char *str)
 {
+    unsigned int        len;
+    char                *number;
+    struct variables    var;
+
+    i = 0;
+    while (str[len] && ft_isdigit(str[len]))
+        len++;
+    if (!(number = malloc(len + 1)))
+    {
+        var.error = TRUE;
+        return (-1);
+    }
+    while (len-- >= 0)
+    {
+        *number = *str;
+        number++;
+        str++;
+    }
+    return (ft_atoi(number));
 }
-*/
+
 
 /*
 ** ft_itohex requires a boolean parameter to specify if the alphabetic
 ** characters of the hex number are mayus
 */
 
-int             ft_itohex(unsigned int nb, bool  mayus)
+int    ft_itohex(unsigned int nb, bool  mayus)
 {
     unsigned int   num;
     unsigned int    l;
