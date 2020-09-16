@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 17:39:24 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/16 19:42:16 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,8 @@ void    find_flags(const char *format)
     }
     else if (*format == '.')
         var.precision = (get_number(++format));
-    else
-    {
-        ft_putstr("ERROR\nInvalid flags\n");
+    else if (is_type(*format) == 0)
         var.error = TRUE;
-    }
 }
 
 void    check_type(const char c, va_list arg)

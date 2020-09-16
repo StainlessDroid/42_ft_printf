@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:08:59 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 18:59:22 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/16 19:39:50 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,13 @@ int     is_flag(char c)
         return (1);
     else
         return (0);    
+}
+
+int		is_type(char c)
+{
+	if (c == 'c' || c == 'i' || c == 'd' || c == 'u' || c == 'x' 
+		|| c == 'X' || c == 'p')
+		return (1);
+	else
+		return (0);
 }
