@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 18:39:49 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/16 17:41:47 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,7 @@ int     print_x(unsigned int nb, bool mayus)
     unsigned int        i;
     struct variables    var;
 
-    i = ft_itohex(nb, FALSE);
-    var.printed_chars += i;
-    return (i);
-}
-
-int     print_X(unsigned int nb, bool mayus)
-{
-    unsigned int        i;
-    struct variables    var;
-
-    i = ft_itohex(nb, TRUE);
+    i = ft_itohex(nb, mayus);
     var.printed_chars += i;
     return (i);
 }

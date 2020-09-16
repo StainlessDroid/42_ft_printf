@@ -6,7 +6,7 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/14 17:01:42 by mpascual          #+#    #+#              #
-#    Updated: 2020/09/15 17:33:11 by mpascual         ###   ########.fr        #
+#    Updated: 2020/09/16 17:52:20 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,13 @@ NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/ft_printf.c src/utils.c src/flags.c
+SRC = src/ft_printf.c src/utils.c src/flags.c src/print_c.c src/print_di.c \
+	src/print_p.c src/print_s.c src/print_u.c src/print_x.c
 
 OBJS = $(SRC:.c=.o)
 
 $(NAME): $(OBJS)
-	cd libft && $(MAKE)
+	cd libft && make
 	cp libft/libft.a $(NAME)
 	ar -crs $(NAME) $(OBJS)
 
@@ -38,32 +39,5 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
-
-coffee:
-	@clear
-	@echo ""
-	@echo "                   ("
-	@echo "	                     )     ("
-	@echo "               ___...(-------)-....___"
-	@echo '           .-""       )    (          ""-.'
-	@echo "      .-''''|-._             )         _.-|"
-	@echo '     /  .--.|   `""---...........---""`   |'
-	@echo "    /  /    |                             |"
-	@echo "    |  |    |                             |"
-	@echo "     \  \   |                             |"
-	@echo "      '\ '\ |                             |"
-	@echo "        '\ '|                             |"
-	@echo "        _/ /\                             /"
-	@echo "       (__/  \                           /"
-	@echo '    _..---""` \                         /`""---.._'
-	@echo " .-'           \                       /          '-."
-	@echo ":               '-.__             __.-'              :"
-	@echo ':                  ) ""---...---"" (                :'
-	@echo "\'._                '"--...___...--"'              _.'"
-	@echo '   \""--..__                              __..--""/'
-	@echo "     '._     """----.....______.....----"""         _.'"
-	@echo '         ""--..,,_____            _____,,..--"""'''
-	@echo '                      """------"""'
-#ascii art source: "https://www.asciiart.eu/food-and-drinks/coffee-and-tea"
 
 .PHONY: fclean

@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 19:27:11 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/16 17:40:13 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int    mod_putchar(char c)
         return (0);
     else
     {
-        putchar(c);
+        ft_putchar(c);
         var.printed_chars++;
         return (1);
     }
@@ -44,13 +44,13 @@ void   put_scape(char c)
 }
 
 
-int    get_number(char *str)
+int    get_number(const char *str)
 {
     unsigned int        len;
     char                *number;
     struct variables    var;
 
-    i = 0;
+    len = 0;
     while (str[len] && ft_isdigit(str[len]))
         len++;
     if (!(number = malloc(len + 1)))

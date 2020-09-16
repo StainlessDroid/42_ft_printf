@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:45:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 18:52:13 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/16 17:56:32 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char			*ft_itoa(int nbr)
 		nb = (unsigned int)(nbr * -1);
 	else
 		nb = (unsigned int)nbr;
-	size = (unsigned int)ft_nbrlen(nb);
+	size = (unsigned int)ft_nbrlen(nb, 10);
 	index = 0;
 	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
 		return (0);

@@ -6,37 +6,41 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 19:17:27 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/16 17:39:24 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-/*
-** The pointer to a character pointer (format) has to be incremented by 1
-** at the end of the function (alredy there if '0' of '.')
-*/
-
-find_flags(const char *format)
+void    find_flags(const char *format)
 {
     struct variables    var;
 
-    if (ft_is_digit(*format))
+    if (ft_isdigit(*format))
     {
         if (*format == 0)
+        {
             var.zero = TRUE;
+            format++;
+        }
         else
             var.width = (get_number(++format));
     }
     else if (*format == '-')
+    {
         var.minus = TRUE;
-    else if (*format == '*')    //this is going to be a bit of a headache
+        format++;
+    }
+    else if (*format == '*')
+    {
         var.asterisk = TRUE;
+        format++;
+    }
     else if (*format == '.')
         var.precision = (get_number(++format));
     else
     {
-        putstr("ERROR\nInvalid flags\n");
+        ft_putstr("ERROR\nInvalid flags\n");
         var.error = TRUE;
     }
 }
@@ -58,9 +62,9 @@ void    check_type(const char c, va_list arg)
     else if (c == 'x')
         var.printed_chars += print_x(va_arg(arg, unsigned int), FALSE);
     else if (c == 'X')
-        var.printed_chars += print_x(va_arg(arg, char*), TRUE);
+        var.printed_chars += print_x(va_arg(arg, unsigned int), TRUE);
     else if (c == '%')
-        var.printed_chars += ft_putwchar('%');
+        var.printed_chars += ft_putchar('%');
     
 }
 
