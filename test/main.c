@@ -13,48 +13,28 @@
 #include <stdio.h>
 #include "../header.h"
 
-struct test_variables
-{
-    int         i1;
-    int         i2;
-    unsigned int    ui1;
-    unsigned int    ui2;
-    unsigned long   ul;
-    char            c1;
-    char            c2;
-    char            *s1;
-    char            *s2;
-};
+int				i1 = 11074;
+int				i2 = -4004;
+unsigned int	ui1 = 69047;
+unsigned int	ui2 = 0;
+unsigned long	ul = 694201170000;
+char			c1 = '?';
+char			c2 = ' ';
+char			*s1 = "Lorem ipsum dolor sit amet";
+char			*s2 = "caca¡'º12º208‚?<+`ç¨Ç´^\\@@'&%#||=0)(";
 
-void    init_tvars(void)
-{
-    struct test_variables   t_var;
-
-    t_var.i1 = 11074;
-    t_var.i2 = -4004;
-    t_var.ui1 = 69047;
-    t_var.ui2 = 0;
-    t_var.ul = 694201170000;
-    t_var.c1 = '?';
-    t_var.c2 = ' ';
-    t_var.s1 = "Lorem ipsum dolor sit amet";
-    t_var.s2 = "caca¡'º12º208‚?<+`ç¨Ç´^\\@@'&%#||=0)(";
-}
 
 int     main(void)
 {
-    struct test_variables   t_var;
-
-    init_tvars();
     printf("\033[0;32m");   // Set printf color output to GREEN
 
-    //printf("Decimal integers:%d\n%i\n", t_var.i1, t_var.i2);
-    ft_printf("Decimal integers:%d\n%i\n", t_var.i1, t_var.i2);
-    //printf("Hexadecimal:%x\n%X\n", t_var.ui1, t_var.ui1);
-    ft_printf("Hexadecimal:%x\n%X\n", t_var.ui1, t_var.ui1);
-    //printf("Characters:%c\n%c\n", t_var.c1, t_var.c2);
-    ft_printf("Characters:%c\n%c\n", t_var.c1, t_var.c2);
-    //printf("Strings:%s\n%s\n", t_var.s1, t_var.s2);
-    ft_printf("Strings:%s\n%s\n", t_var.s1, t_var.s2);
+    //printf("Decimal integers:%d\n%i\n", i1, i2);
+    ft_printf("Decimal integers:%d\n%i\n", i1, i2);
+    //printf("Hexadecimal:%x\n%X\n", ui1, ui1);
+    ft_printf("Hexadecimal:%x\n%X\n", ui1, ui1);
+    //printf("Characters:%c\n%c\n", c1, c2);
+    ft_printf("Characters:%c\n%c\n", c1, c2);
+    //printf("Strings:%s\n%s\n", s1, s2);
+    ft_printf("Strings:%s\n%s\n", s1, s2);
     return (0);
 }
