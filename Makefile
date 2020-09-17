@@ -12,7 +12,7 @@
 
 NAME = libftprintf.a
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra #-Werror
 
 SRC = src/ft_printf.c src/utils.c src/flags.c src/print_c.c src/print_di.c \
 	src/print_p.c src/print_s.c src/print_u.c src/print_x.c

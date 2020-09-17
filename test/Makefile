@@ -12,7 +12,7 @@
 
 NAME = Test_ex
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra #-Werror
 
 SRC = main.c
 
