@@ -34,7 +34,6 @@ void        init_flags(void);
 int			mod_putchar(char c);
 int			is_flag(char c);
 int			is_type(char c);
-void		put_scape(char c);
 void		find_flags(const char *format);
 void		check_type(const char c, va_list arg);
 int			print_c(char c);

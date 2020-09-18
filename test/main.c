@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include "../header.h"
 
+
 int				i1 = 11074;
 int				i2 = -4004;
 unsigned int	ui1 = 69047;
@@ -26,7 +27,7 @@ char			*s2 = "caca¡'º12º208‚?<+`ç¨Ç´^\\@@'&%#||=0)(";
 
 int     main(void)
 {
-    printf("\033[0;32m");   // Set printf color output to GREEN
+    //printf("\033[0;32m");   // Set printf color output to GREEN
 
     //printf("Decimal integers:%d\n%i\n", i1, i2);
     ft_printf("Decimal integers:%d\n%i\n", i1, i2);

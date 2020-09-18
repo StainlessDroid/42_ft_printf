@@ -12,13 +12,13 @@
 
 #include "libft.h"
 
-int     ft_nbrlen(int nb, int base_len)
+unsigned int     ft_nbrlen(int nb, int base_len)
 {
     unsigned int n_digits;
     bool         neg;
 
     neg = nb < 0 ? TRUE : FALSE;
-    n_digits = 0;
+    n_digits = 1;
     while (nb / base_len > 0)
     {
         n_digits++;

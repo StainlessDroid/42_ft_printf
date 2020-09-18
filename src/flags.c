@@ -28,7 +28,7 @@ void init_flags(void)
 
 int     is_flag(char c)
 {
-    if (c == '-' || c == '0' || c == '.' || c == '*')
+    if (c == '-' || c == '.' || c == '*' || ft_isdigit(c))
         return (1);
     else
         return (0);    

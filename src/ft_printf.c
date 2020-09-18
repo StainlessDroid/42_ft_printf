@@ -16,30 +16,38 @@ void    find_flags(const char *format)
 {
     struct variables    var;
 
-    if (ft_isdigit(*format))
+    while (!is_type(*format))
     {
-        if (*format == 0)
+        if (ft_isdigit(*format))
         {
-            var.zero = TRUE;
+            if (*format == 0)
+            {
+                var.zero = TRUE;
+                format++;
+            }
+            else
+            {
+                var.width = (get_number(*format));
+                format++;
+            }
+        }
+        else if (*format == '-')
+        {
+            var.minus = TRUE;
             format++;
         }
-        else
-            var.width = (get_number(++format));
+        else if (*format == '*')
+        {
+            var.asterisk = TRUE;
+            format++;
+        }
+        else if (*format == '.')
+        {
+            format++;
+            var.precision = (get_number(*format));
+            break;
+        }
     }
-    else if (*format == '-')
-    {
-        var.minus = TRUE;
-        format++;
-    }
-    else if (*format == '*')
-    {
-        var.asterisk = TRUE;
-        format++;
-    }
-    else if (*format == '.')
-        var.precision = (get_number(++format));
-    else if (is_type(*format) == 0)
-        var.error = TRUE;
 }
 
 void    check_type(const char c, va_list arg)
@@ -74,23 +82,15 @@ int     ft_printf(const char *format, ...)
     va_start(arg, format);
     while (*format)
     {
-        if (mod_putchar(*format) == 0)
+        if (*format == '%')
         {
-            if (*format == '%')
-            {
-                find_flags(++format);
-                if (var.error)
-                    return (-1);
-                check_type(*format, arg);
-            }
-            else
-            {
-                format++;
-                put_scape(*format);
-            }
+            format++;
+            find_flags(format);
+            check_type(*format, arg);
         }
         else
-            format++;
+            ft_putchar(*format);
+        format++;
     }
     va_end(arg);
     return (var.printed_chars);

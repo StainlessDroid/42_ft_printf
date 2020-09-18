@@ -15,27 +15,27 @@
 char			*ft_itoa(int nbr)
 {
 	char			*str;
+	unsigned int	n_digits;
 	unsigned int	nb;
-	unsigned int	index;
-	unsigned int	size;
+	unsigned int	i;
 
 	if (nbr < 0)
 		nb = (unsigned int)(nbr * -1);
 	else
 		nb = (unsigned int)nbr;
-	size = (unsigned int)ft_nbrlen(nb, 10);
-	index = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (size + 1 + (nbr < 0 ? 1 : 0)))))
-		return (0);
-	if (nbr < 0 && (str[index] = '-'))
-		size++;
-	index = size - 1;
+	n_digits = ft_nbrlen(nbr, 10);
+	if (!(str = malloc(n_digits + 1 + (nbr < 0 ? 1 : 0))))
+		return (NULL);
+	i = 0;
+	if (nbr < 0 && (str[i] = '-'))
+		i++;
 	while (nb >= 10)
 	{
-		str[index--] = (char)(nb % 10 + 48);
+		str[i++] = nb / (10 * n_digits + 48);
 		nb /= 10;
 	}
-	str[index] = (char)(nb % 10 + 48);
-	str[size] = '\0';
+	str[i++] = (nb % 10 + 48);
+	str[i] = '\0';
+	ft_putstr(str);
 	return (str);
 }

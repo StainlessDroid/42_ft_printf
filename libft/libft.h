@@ -14,7 +14,6 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <ctype.h>
 
 typedef enum
 {
@@ -76,6 +75,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 char			*ft_strcpy(char *dst, const char *src);
 int				ft_putnbr(int nb);
 int				ft_putchar(char c);
-int				ft_nbrlen(int nb, int base_len);
+unsigned int	ft_nbrlen(int nb, int base_len);
 
 #endif
