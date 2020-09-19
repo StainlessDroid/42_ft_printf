@@ -12,6 +12,20 @@
 
 #include "libft.h"
 
+static void		ft_strrev(char *s)
+{
+	char *s_end;
+	char c;
+
+	s_end = s + ft_strlen(s) - 1;
+	while (s < s_end)
+	{
+		c = *s;
+		*s++ = *s_end;
+		*s_end-- = c;
+	}
+}
+
 char			*ft_itoa(int nbr)
 {
 	char			*str;
@@ -31,11 +45,12 @@ char			*ft_itoa(int nbr)
 		i++;
 	while (nb >= 10)
 	{
-		str[i++] = nb / (10 * n_digits + 48);
+		str[i++] = ((nb % 10) + 48);
 		nb /= 10;
+		n_digits--;
 	}
 	str[i++] = (nb % 10 + 48);
 	str[i] = '\0';
-	ft_putstr(str);
+	ft_strrev(str);
 	return (str);
 }
