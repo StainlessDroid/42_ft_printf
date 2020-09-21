@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 19:40:10 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/21 19:46:50 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void        init_flags(void);
 int			mod_putchar(char c);
 int			is_flag(char c);
 int			is_type(char c);
-void		find_flags(const char *format);
+void		find_flags(const char *format, va_list arg);
 void		check_type(const char c, va_list arg);
 int			print_c(char c);
 int			print_s(char *str);

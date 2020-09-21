@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/21 17:37:37 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/21 20:23:16 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void    find_flags(const char *format)
+void    find_flags(const char *format, va_list arg)
 {
     struct variables    var;
 
@@ -26,10 +26,7 @@ void    find_flags(const char *format)
                 format++;
             }
             else
-            {
-                var.width = (get_number(format));
-                format++;
-            }
+                var.width = (get_number(format++));
         }
         else if (*format == '-')
         {
@@ -38,15 +35,18 @@ void    find_flags(const char *format)
         }
         else if (*format == '*')
         {
-            var.asterisk = TRUE;
+            var.width = va_arg(arg, unsigned int);
             format++;
         }
         else if (*format == '.')
         {
-            format++;
-            var.precision = (get_number(format));
-            break;
+            if (format[1] == '*')
+                var.precision = va_arg(arg, unsigned int);
+            else
+                var.precision = (get_number(++format));
         }
+        else
+            break;
     }
 }
 
@@ -70,7 +70,6 @@ void    check_type(const char c, va_list arg)
         var.printed_chars += print_x(va_arg(arg, unsigned int), TRUE);
     else if (c == '%')
         var.printed_chars += ft_putchar('%');
-    
 }
 
 int     ft_printf(const char *format, ...)
@@ -85,7 +84,7 @@ int     ft_printf(const char *format, ...)
         if (*format == '%')
         {
             format++;
-            find_flags(format);
+            find_flags(format, arg);
             check_type(*format, arg);
         }
         else
