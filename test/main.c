@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 18:56:34 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 19:43:54 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/21 16:54:53 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int     main(void)
     //printf("Hexadecimal:%x\n%X\n", ui1, ui1);
     ft_printf("Hexadecimal:%x\n%X\n", ui1, ui1);
     //printf("Characters:%c\n%c\n", c1, c2);
+	ft_printf("Unsigned:%u\n", ui1);
+	//printf("Unsigned:%u\n", ui1);
     ft_printf("Characters:%c\n%c\n", c1, c2);
     //printf("Strings:%s\n%s\n", s1, s2);
     ft_printf("Strings:%s\n%s\n", s1, s2);

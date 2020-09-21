@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:45:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 17:56:32 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/21 16:52:47 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ char			*ft_itoa(int nbr)
 	if (!(str = malloc(n_digits + 1 + (nbr < 0 ? 1 : 0))))
 		return (NULL);
 	i = 0;
-	if (nbr < 0 && (str[i] = '-'))
-		i++;
 	while (nb >= 10)
 	{
 		str[i++] = ((nb % 10) + 48);
@@ -50,6 +48,8 @@ char			*ft_itoa(int nbr)
 		n_digits--;
 	}
 	str[i++] = (nb % 10 + 48);
+	if (nbr < 0 && (str[i] = '-'))
+		i++;
 	str[i] = '\0';
 	ft_strrev(str);
 	return (str);

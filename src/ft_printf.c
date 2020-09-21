@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 19:42:16 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/21 16:32:47 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    find_flags(const char *format)
             }
             else
             {
-                var.width = (get_number(*format));
+                var.width = (get_number(format));
                 format++;
             }
         }
@@ -44,7 +44,7 @@ void    find_flags(const char *format)
         else if (*format == '.')
         {
             format++;
-            var.precision = (get_number(*format));
+            var.precision = (get_number(format));
             break;
         }
     }
