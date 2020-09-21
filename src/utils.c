@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 17:40:13 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/21 17:13:44 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ int    get_number(const char *str)
     }
     return (ft_atoi(number));
 }
-
 
 /*
 ** ft_itohex requires a boolean parameter to specify if the alphabetic
