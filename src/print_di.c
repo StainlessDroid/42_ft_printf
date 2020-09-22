@@ -14,10 +14,19 @@
 
 int     print_di(int nb)
 {
-    unsigned int        i;
     struct variables    var;
+    char				*nbstr;
+    unsigned int		len;
+    unsigned int		printed_chars;
 
-    i = ft_putstr(ft_itoa(nb));
-    var.printed_chars += i;
-    return (i);
+    nbstr = ft_itoa(nb);
+    len = ft_strlen(nbstr);
+    printed_chars = 0;
+    while (var.precision > len)
+    {
+    	printed_chars += ft_putchar('0');
+    	var.precision--;
+    }
+    printed_chars += ft_putstr(nbstr);
+    return (printed_chars);
 }

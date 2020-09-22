@@ -40,10 +40,11 @@ void    find_flags(const char *format, va_list arg)
         }
         else if (*format == '.')
         {
-            if (format[1] == '*')
+            format++;
+            if (*format == '*')
                 var.precision = va_arg(arg, unsigned int);
             else
-                var.precision = (get_number(++format));
+                var.precision = (get_number(format));
         }
         else
             break;

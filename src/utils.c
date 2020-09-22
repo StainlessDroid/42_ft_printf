@@ -14,7 +14,7 @@
 
 int    get_number(const char *str)
 {
-    unsigned int        len;
+    int        len;
     char                *number;
     struct variables    var;
 
