@@ -6,18 +6,17 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/21 17:18:45 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/22 19:10:58 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     print_s(char *str)
+int     print_s(char *str, s_var *var)
 {
     unsigned int        i;
-    struct variables    var;
 
     i = ft_putstr(str);
-    var.printed_chars += i;
+    var->printed_chars += i;
     return (i);
 }

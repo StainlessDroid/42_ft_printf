@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/21 19:46:50 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/22 19:03:00 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include "libft/libft.h"
 # include <stdarg.h>
 
-struct		variables
+typedef struct		variables
 {
 	unsigned int	printed_chars;
 	unsigned int	width;
@@ -26,22 +26,21 @@ struct		variables
 	bool			point;
 	bool			asterisk;
 	bool			error;
-
-};
+}					s_var;
 
 int			ft_printf(const char *format, ...);
-void        init_flags(void);
+void        init_flags(s_var *var);
 int			mod_putchar(char c);
 int			is_flag(char c);
 int			is_type(char c);
-void		find_flags(const char *format, va_list arg);
-void		check_type(const char c, va_list arg);
-int			print_c(char c);
-int			print_s(char *str);
-int			print_di(int nb);
-int			print_u(unsigned int nb);
-int			print_p(unsigned long ptr);
-int			print_x(unsigned int nb, bool mayus);
+void		find_flags(const char *format, va_list arg, s_var *var);
+void		check_type(const char c, va_list arg, s_var *var);
+int			print_c(char c, s_var *var);
+int			print_s(char *str, s_var *var);
+int			print_di(int nb, s_var *var);
+int			print_u(unsigned int nb, s_var *var);
+int			print_p(unsigned long ptr, s_var *var);
+int			print_x(unsigned int nb, bool mayus, s_var *var);
 int			ft_itohex(unsigned int nb, bool mayus);
 int			get_number(const char *str);
 

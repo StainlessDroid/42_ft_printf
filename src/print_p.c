@@ -6,18 +6,17 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:59:41 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 19:01:24 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/22 19:10:40 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     print_p(unsigned long nb)
+int     print_p(unsigned long nb, s_var *var)
 {
     unsigned int        i;
-    struct variables    var;
 
     i = ft_putstr(ft_itoa(nb));
-    var.printed_chars += 1;
+    var->printed_chars += 1;
     return (i);
 }
