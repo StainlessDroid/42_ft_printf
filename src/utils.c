@@ -14,20 +14,24 @@
 
 int    get_number(const char *str)
 {
+    int        i;
     int        len;
     char       *number;
 
+    i = 0;
     len = 0;
-    while (str[len] && ft_isdigit(str[len]))
+    while (ft_isdigit(str[len]))
         len++;
     if (!(number = malloc(len + 1)))
         return (-1);
-    while (len-- >= 0)
+    i = 0;
+    while (len > 0)
     {
-        *number = *str;
-        number++;
-        str++;
+        number[i] = str[i];
+        i++;
+        len--;
     }
+    number[i] = '\0';
     return (ft_atoi(number));
 }
 
@@ -45,13 +49,7 @@ int    ft_itohex(unsigned int nb, bool  mayus)
     a = mayus ? 55 : 87;
     num = nb;
     l = 0;
-    if (num < 0)
-    {
-        ft_putchar('-');
-        l++;
-        num *= -1;
-    }
-    else if (num >= 16)
+    if (num >= 16)
     {
         ft_itohex(num / 16, mayus);
         ft_putchar(num % 16 + (num % 16 >= 9 ? a : '0'));

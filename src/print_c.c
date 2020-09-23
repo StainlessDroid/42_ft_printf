@@ -16,7 +16,12 @@ int     print_c(char c, s_var *var)
 {
     unsigned int        i;
 
-    i = ft_putchar(c);
-    var->printed_chars += i;
+    i = 0;
+    while (var->width > 1)
+    {
+    	i += ft_putchar(' ');
+    	var->width--;
+    }
+    i += ft_putchar(c);
     return (i);
 }
