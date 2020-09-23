@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 18:56:34 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/21 17:40:25 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/23 17:03:37 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ int     main(void)
     //printf("\033[0;32m");   // Set printf color output to GREEN
 
 	//printf("Decimal integers:%d\n%i\n", i1, i2);
-	ft_printf("Decimal integers:%.7d\n%i\n", i1, i2);
+	ft_printf("Decimal integers:%.7d\n", i1);
 	//printf("Hexadecimal:%x\n%X\n", ui1, ui1);
-	ft_printf("Hexadecimal:%x\n%X\n", ui1, ui1);
+	//ft_printf("Hexadecimal:%x\n%X\n", ui1, ui1);
 	//printf("Characters:%c\n%c\n", c1, c2);
-	ft_printf("Unsigned:%u\n", ui1);
+	//ft_printf("Unsigned:%u\n", ui1);
 	//printf("Unsigned:%u\n", ui1);
-	ft_printf("Characters:%c\n%c\n", c1, c2);
+	//ft_printf("Characters:%c\n%c\n", c1, c2);
 	//printf("Strings:%s\n%s\n", s1, s2);
-	ft_printf("Strings:%s\n%s\n", s1, s2);
+	//ft_printf("Strings:%s\n%s\n", s1, s2);
     return (0);
 }
