@@ -6,7 +6,7 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/14 17:01:42 by mpascual          #+#    #+#              #
-#    Updated: 2020/09/23 17:16:22 by mpascual         ###   ########.fr        #
+#    Updated: 2020/09/23 17:40:19 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,7 @@ NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/ft_printf.c src/utils.c src/flags.c src/print_cs.c src/print_diu.c \
-		src/print_xp.c
+SRC = src/ft_printf.c src/utils.c src/print_cs.c src/print_diu.c src/print_xp.c
 
 OBJS = $(SRC:.c=.o)
 

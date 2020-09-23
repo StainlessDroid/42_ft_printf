@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/22 19:03:00 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/23 17:41:35 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ typedef struct		variables
 int				ft_printf(const char *format, ...);
 void        	init_flags(s_var *var);
 int				mod_putchar(char c);
-int				is_flag(char c);
 int				is_type(char c);
 unsigned int	find_flags(const char *format, va_list arg, s_var *var);
 void			check_type(const char c, va_list arg, s_var *var);
