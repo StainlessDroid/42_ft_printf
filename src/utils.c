@@ -6,11 +6,32 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/22 19:07:57 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/23 17:27:24 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+void init_flags(s_var *var)
+{
+	var->printed_chars = 0;
+	var->precision = 0;
+	var->width = 0;
+	var->minus = FALSE;
+	var->zero = FALSE;
+	var->point = FALSE;
+	var->asterisk = FALSE;
+	var->error = FALSE;
+}
+
+int		is_type(char c)
+{
+	if (c == 'c' ||  c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
+		|| c == 'X' || c == 'p')
+		return (1);
+	else
+		return (0);
+}
 
 int    get_number(const char *str)
 {
