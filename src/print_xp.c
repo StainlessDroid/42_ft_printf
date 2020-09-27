@@ -14,18 +14,35 @@
 
 int     print_x(unsigned int nb, bool mayus, s_var *var)
 {
-    unsigned int        i;
+	unsigned int		len;
+    unsigned int        n_printed;
 
-    i = ft_itohex(nb, mayus);
-    var->printed_chars += i;
-    return (i);
+    len = ft_nbrlen(nb, 16);
+    n_printed = 0;
+    while (var->precision > len)
+    {
+    	n_printed += ft_putchar('0');
+    	var->precision--;
+    }
+    n_printed += ft_itohex(nb, mayus);
+    return (n_printed);
 }
 
 int     print_p(unsigned long nb, s_var *var)
 {
-    unsigned int        i;
+    int             n_printed;
+    unsigned int    len;
 
-    i = ft_putstr(ft_itoa(nb));
-    var->printed_chars += 1;
-    return (i);
+    n_printed = 0;
+    len = ft_nbrlen(nb, 10);
+    while(var->width > len)
+    {
+        if (var->zero == TRUE)
+            n_printed += ft_putchar('0');
+        else
+            n_printed += ft_putchar(' ');
+        var->width--;
+    }
+    n_printed += ft_putstr(ft_itoa(nb));
+    return (n_printed);
 }

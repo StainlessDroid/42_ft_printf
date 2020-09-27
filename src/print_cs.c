@@ -14,23 +14,36 @@
 
 int     print_c(char c, s_var *var)
 {
-    unsigned int        i;
+    int     n_printed;
 
-    i = 0;
+    n_printed = 0;
     while (var->width > 1)
     {
-    	i += ft_putchar(' ');
-    	var->width--;
+        if (var->zero == TRUE)
+            n_printed += ft_putchar('0');
+        else
+            n_printed += ft_putchar(' ');
+        var->width--;
     }
-    i += ft_putchar(c);
-    return (i);
+    n_printed += ft_putchar(c);
+    return (n_printed);
 }
 
 int     print_s(char *str, s_var *var)
 {
-    unsigned int        i;
+    int             n_printed;
+    unsigned int    len;
 
-    i = ft_putstr(str);
-    var->printed_chars += i;
-    return (i);
+    n_printed = 0;
+    len = ft_strlen(str);
+    while (var->width > len)
+    {
+        if (var->zero == TRUE)
+            n_printed += ft_putchar('0');
+        else
+            n_printed += ft_putchar(' ');
+        var->width--;
+    }
+    n_printed += ft_putstr(str);
+    return (n_printed);
 }

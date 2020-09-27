@@ -17,18 +17,17 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
     unsigned int    i;
 
     i = 0;
-    while (!is_type(*format))
+    if (!is_type(*format))
     {
-        if (*format == '0')
+        if (ft_isdigit(*format))
         {
-            var->zero = TRUE;
-            format++;
-            i++;
-        }
-        else if (ft_isdigit(*format))
-        {
+            while (*format == '0')
+            {
+                var->zero = TRUE;
+                format++;
+            }
             var->width = (get_number(format++));
-            i += var->width;
+            i += ft_nbrlen(var->width, 10);
         }
         else if (*format == '-')
         {
@@ -45,14 +44,13 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
         else if (*format == '.')
         {
             format++;
+            i++;
             if (*format == '*')
                 var->precision = va_arg(arg, unsigned int);
             else
                 var->precision = (get_number(format));
-            i += var->precision;
+            i += ft_nbrlen(var->precision, 10);
         }
-        else
-            break;
     }
     return (i);
 }
@@ -81,6 +79,7 @@ int             ft_printf(const char *format, ...)
 {
     va_list     arg;
     s_var       *var;
+    int         n_printed;
 
     if (!(var = malloc(sizeof(s_var) + 1)))
         return (-1);
@@ -95,10 +94,11 @@ int             ft_printf(const char *format, ...)
             check_type(*format, arg, var);
         }
         else
-            ft_putchar(*format);
+            var->printed_chars += ft_putchar(*format);
         format++;
     }
-    free(var);
+    n_printed = var->printed_chars;
     va_end(arg);
-    return (var->printed_chars);
+    free(var);
+    return (n_printed);
 }

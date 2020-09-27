@@ -17,7 +17,7 @@
 
 typedef struct		variables
 {
-	unsigned int	printed_chars;
+	int				printed_chars;
 	unsigned int	width;
 	unsigned int	precision;
 	bool			flag;

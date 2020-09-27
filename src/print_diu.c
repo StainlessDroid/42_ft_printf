@@ -32,9 +32,16 @@ int     print_di(int nb, s_var *var)
 
 int     print_u(unsigned int nb, s_var *var)
 {
-    unsigned int        i;
+    unsigned int        len;
+    unsigned int        n_printed;
 
-    i = ft_putstr(ft_itoa(nb));
-    var->printed_chars += i;
-    return (i);
+    len = ft_nbrlen(nb, 10);
+    n_printed = 0;
+    while (var->precision > len)
+    {
+        n_printed += ft_putchar('0');
+        var->precision--;
+    }
+    n_printed += ft_putstr(ft_itoa(nb));
+    return (n_printed);
 }
