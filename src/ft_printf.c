@@ -6,11 +6,34 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/22 19:13:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/28 19:42:01 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+unsigned int    digit_flags(const char *format, s_var *var)
+{
+    unsigned int    i;
+
+    i = 0;
+    while (*format && ft_isdigit(*format))
+    {
+        if (*format == '0')
+        {
+            var->zero = TRUE;
+            format++;
+            i++;
+        }
+        else
+        {
+            var->width = get_number(format++);
+            i += ft_nbrlen(var->width, 10);
+            break;
+        }
+    }
+    return (i);
+}
 
 unsigned int    find_flags(const char *format, va_list arg, s_var *var)
 {
@@ -19,17 +42,7 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
     i = 0;
     if (!is_type(*format))
     {
-        if (ft_isdigit(*format))
-        {
-            while (*format == '0')
-            {
-                var->zero = TRUE;
-                format++;
-            }
-            var->width = (get_number(format++));
-            i += ft_nbrlen(var->width, 10);
-        }
-        else if (*format == '-')
+        if (*format == '-')
         {
             var->minus = TRUE;
             format++;
@@ -51,6 +64,8 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
                 var->precision = (get_number(format));
             i += ft_nbrlen(var->precision, 10);
         }
+        else
+            i += digit_flags(format, var);
     }
     return (i);
 }
