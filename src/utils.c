@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/23 17:40:49 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/28 17:52:32 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ void init_flags(s_var *var)
 	var->width = 0;
 	var->minus = FALSE;
 	var->zero = FALSE;
-	var->point = FALSE;
-	var->asterisk = FALSE;
-	var->error = FALSE;
 }
 
 int		is_type(char c)

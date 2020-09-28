@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/23 17:41:35 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/28 17:52:10 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,8 @@ typedef struct		variables
 	int				printed_chars;
 	unsigned int	width;
 	unsigned int	precision;
-	bool			flag;
 	bool			zero;
 	bool			minus;
-	bool			point;
-	bool			asterisk;
-	bool			error;
 }					s_var;
 
 int				ft_printf(const char *format, ...);
