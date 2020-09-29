@@ -1,0 +1,11 @@
+TEST:
+	undefined behavior
+	multiflags
+
+ADD:
+	management of '-' flag
+
+FIX:
+	Mem_leaks in ft_itoa
+	Wrong return values in ft_printf
+

@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 18:56:34 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/28 19:43:48 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/28 21:04:11 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int     main(void)
 	ft_printf("Strings:\n%034s\n",  s1);
 	//printf("Memory Address:%p\n", ptr);
 	ft_printf("Memory Address:\n%p\n", ptr);
-    return (0);
+	system ("leaks Test_ex");
+	return (0);
 }
 
