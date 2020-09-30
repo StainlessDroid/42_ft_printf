@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/28 19:42:01 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/30 18:17:26 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void            check_type(const char c, va_list arg, s_var *var)
     else if (c == 'X')
         var->printed_chars += print_x(va_arg(arg, unsigned int), TRUE, var);
     else if (c == '%')
-        var->printed_chars += ft_putchar('%');
+        var->printed_chars += print_c('%', var);
 }
 
 int             ft_printf(const char *format, ...)

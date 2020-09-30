@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_x.c                                          :+:      :+:    :+:   */
+/*   print_xp.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/23 17:14:19 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/30 19:05:05 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ int     print_p(unsigned long nb, s_var *var)
             n_printed += ft_putchar(' ');
         var->width--;
     }
-    n_printed += ft_putstr(ft_itoa(nb));
+    n_printed += ft_putnbr(nb);
     return (n_printed);
 }
