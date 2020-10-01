@@ -6,11 +6,19 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/30 22:11:39 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/01 21:22:28 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
+
+int     mod_putstr(char * str, unsigned int len)
+{
+    int     n_printed;
+
+    n_printed = write(1, str, len);
+    return (n_printed);
+}
 
 int     print_c(char c, s_var *var)
 {
@@ -35,7 +43,7 @@ int     print_c(char c, s_var *var)
 int     print_s(char *str, s_var *var)
 {
     int             n_printed;
-    unsigned int    len;
+    int             len;
 
     n_printed = 0;
     len = ft_strlen(str);

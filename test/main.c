@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 18:56:34 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/30 21:43:54 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/01 21:56:26 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,40 @@ int     main(void)
 	//printf("Characters:%c\n%c\n", c1, c2);
 	//ft_printf("Characters:\n%04c\n%c\n", c1, c2);
 	//printf("Strings:%s\n%s\n", s1, s2);
-	ft_printf("Strings:\n%7.7s%7.7s", "hello", "world");
-	//printf("Memory Address:%p\n", ptr);
-	//ft_printf("Memory Address:\n%11p\n", ptr);
+	//ft_printf("Strings:\n%7.7s%7.7s", "hello", "world");
+	//printf("Memory Address:%.*p\n", -3, 0);
+	ft_printf("%.*p\n", -3, s1);
+	ft_printf("%.*p\n", -1, s1);
+	ft_printf("%.*p\n", -3, 0);
+	ft_printf("%.*p\n", -3, 0);
 	//system ("leaks Test_ex");
+
+
+
+
+/*
+	Test 4203 (p_neg_prec_star_01) : FAILED.
+    First line of code: {return test("%.*p", -3, s_hello);}
+    Timed out
+
+Test 4204 (p_neg_prec_star_02) : FAILED.
+    First line of code: {return test("%.*p", -1, s_hello);}
+    Timed out
+
+Test 4205 (p_neg_prec_star_03) : FAILED.
+    First line of code: {return test("%.*p", -3, 0);}
+      expected output : "0x0"
+      your output     : "0x1019be66c"
+      expected (nonprintable as hex) : "0x0"
+      actual   (nonprintable as hex) : "0x1019be66c"
+
+Test 4206 (p_neg_prec_star_04) : FAILED.
+    First line of code: {return test("%.*p", -1, 0);}
+      expected output : "0x0"
+      your output     : "0x1019be66c"
+      expected (nonprintable as hex) : "0x0"
+      actual   (nonprintable as hex) : "0x1019be66c"
+*/
+
 	return (0);
 }
-

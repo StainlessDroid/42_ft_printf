@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/16 17:54:54 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/01 21:14:24 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,6 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 char			*ft_strcpy(char *dst, const char *src);
 int				ft_putnbr(int nb);
 int				ft_putchar(char c);
-unsigned int	ft_nbrlen(int nb, int base_len);
+unsigned int	ft_nbrlen(long nb, int base_len);
 
 #endif

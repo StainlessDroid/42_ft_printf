@@ -6,16 +6,16 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:49:38 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/15 18:50:29 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/01 21:14:01 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int     ft_nbrlen(int nb, int base_len)
+unsigned int     ft_nbrlen(long nb, int base_len)
 {
-    unsigned int n_digits;
-    bool         neg;
+    long        n_digits;
+    bool        neg;
 
     neg = nb < 0 ? TRUE : FALSE;
     n_digits = 1;

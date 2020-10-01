@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/30 22:04:46 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/01 19:54:03 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int    get_number(const char *str)
 ** characters of the hex number are mayus
 */
 
-int    ft_itohex(unsigned int nb, bool  mayus)
+int    ft_itohex(unsigned long nb, bool  mayus)
 {
-    unsigned int   num;
+    unsigned long   num;
     unsigned int    l;
     int             a;
 
@@ -71,12 +71,12 @@ int    ft_itohex(unsigned int nb, bool  mayus)
     if (num >= 16)
     {
         ft_itohex(num / 16, mayus);
-        ft_putchar(num % 16 + (num % 16 >= 9 ? a : '0'));
+        ft_putchar(num % 16 + (num % 16 > 9 ? a : '0'));
         l++;
     }
     else
     {
-        ft_putchar(num + (num % 16 >= 9 ? a : '0'));
+        ft_putchar(num + (num % 16 > 9 ? a : '0'));
         l++;
     }
     return (l);

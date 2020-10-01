@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/30 22:18:38 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/01 21:19:30 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 typedef struct		variables
 {
 	int				printed_chars;
-	unsigned int	width;
-	unsigned int	precision;
+	int				width;
+	int				precision;
 	bool			zero;
 	bool			minus;
 }					s_var;
@@ -36,7 +36,8 @@ int				print_di(int nb, s_var *var);
 int				print_u(unsigned int nb, s_var *var);
 int				print_p(unsigned long ptr, s_var *var);
 int				print_x(unsigned int nb, bool mayus, s_var *var);
-int				ft_itohex(unsigned int nb, bool mayus);
+int				ft_itohex(unsigned long nb, bool mayus);
 int				get_number(const char *str);
+int				mod_putstr(char * str, unsigned int len);
 
 #endif
