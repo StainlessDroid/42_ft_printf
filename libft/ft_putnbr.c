@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: manu <manu@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 19:54:54 by manu              #+#    #+#             */
-/*   Updated: 2020/02/16 19:56:20 by manu             ###   ########.fr       */
+/*   Updated: 2020/09/30 21:04:52 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,6 @@ int     ft_putnbr(int nb)
 		len++;
 	}
 	else
-	{
-		ft_putchar(num + '0');
-		len++;
-	}
+		len += ft_putchar(num + '0');
     return (len);
 }

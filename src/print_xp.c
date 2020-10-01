@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/30 19:05:05 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/30 20:45:52 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ int     print_x(unsigned int nb, bool mayus, s_var *var)
 
     len = ft_nbrlen(nb, 16);
     n_printed = 0;
+    if (var->minus)
+        n_printed += ft_itohex(nb, mayus);
     while (var->precision > len)
     {
     	n_printed += ft_putchar('0');
     	var->precision--;
     }
-    n_printed += ft_itohex(nb, mayus);
+    if (var->minus == FALSE)
+        n_printed += ft_itohex(nb, mayus);
     return (n_printed);
 }
 
@@ -35,6 +38,8 @@ int     print_p(unsigned long nb, s_var *var)
 
     n_printed = 0;
     len = ft_nbrlen(nb, 10);
+    if (var->minus)
+        n_printed += ft_putnbr(nb);
     while(var->width > len)
     {
         if (var->zero == TRUE)
@@ -43,6 +48,7 @@ int     print_p(unsigned long nb, s_var *var)
             n_printed += ft_putchar(' ');
         var->width--;
     }
-    n_printed += ft_putnbr(nb);
+    if (var->minus == FALSE)
+        n_printed += ft_putnbr(nb);
     return (n_printed);
 }

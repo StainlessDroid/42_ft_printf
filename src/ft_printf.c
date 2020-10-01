@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/30 18:17:26 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/30 22:11:32 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ unsigned int    digit_flags(const char *format, s_var *var)
     {
         if (*format == '0')
         {
-            var->zero = TRUE;
+            if (!var->minus)
+                var->zero = TRUE;
             format++;
             i++;
         }
@@ -38,9 +39,11 @@ unsigned int    digit_flags(const char *format, s_var *var)
 unsigned int    find_flags(const char *format, va_list arg, s_var *var)
 {
     unsigned int    i;
+    unsigned int    tmp;
 
     i = 0;
-    if (!is_type(*format))
+    tmp = 0;
+    while (!is_type(*format))
     {
         if (*format == '-')
         {
@@ -50,9 +53,9 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
         }
         else if (*format == '*')
         {
-            var->width = va_arg(arg, unsigned int);
             format++;
             i++;
+            var->width = va_arg(arg, unsigned int);
         }
         else if (*format == '.')
         {
@@ -62,17 +65,27 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
                 var->precision = va_arg(arg, unsigned int);
             else
                 var->precision = (get_number(format));
-            i += ft_nbrlen(var->precision, 10);
+            tmp = ft_nbrlen(var->precision, 10);
+            i += tmp;
+            format += tmp;
+        }
+        else if (ft_isdigit(*format))
+        {
+            tmp = digit_flags(format, var);
+            i += tmp;
+            format += tmp;
         }
         else
-            i += digit_flags(format, var);
+            break;
     }
     return (i);
 }
 
 void            check_type(const char c, va_list arg, s_var *var)
 {
-    if ( c == 'c')
+    if (!arg)
+        ft_putstr("(null)");
+    else if ( c == 'c')
         var->printed_chars += print_c(va_arg(arg, int), var);
     else if (c == 's')
         var->printed_chars += print_s(va_arg(arg, char*), var);
@@ -87,7 +100,7 @@ void            check_type(const char c, va_list arg, s_var *var)
     else if (c == 'X')
         var->printed_chars += print_x(va_arg(arg, unsigned int), TRUE, var);
     else if (c == '%')
-        var->printed_chars += print_c('%', var);
+            var->printed_chars += print_c('%', var);
 }
 
 int             ft_printf(const char *format, ...)

@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/09/28 17:52:32 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/09/30 22:04:46 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void init_flags(s_var *var)
 int		is_type(char c)
 {
 	if (c == 'c' ||  c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
-		|| c == 'X' || c == 'p')
+		|| c == 'X' || c == 'p' || c == '%')
 		return (1);
 	else
 		return (0);
@@ -50,6 +50,7 @@ int    get_number(const char *str)
         len--;
     }
     number[i] = '\0';
+
     return (ft_atoi(number));
 }
 
