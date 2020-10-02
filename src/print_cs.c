@@ -6,19 +6,11 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/01 21:22:28 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/02 17:57:46 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
-
-int     mod_putstr(char * str, unsigned int len)
-{
-    int     n_printed;
-
-    n_printed = write(1, str, len);
-    return (n_printed);
-}
 
 int     print_c(char c, s_var *var)
 {
@@ -43,12 +35,14 @@ int     print_c(char c, s_var *var)
 int     print_s(char *str, s_var *var)
 {
     int             n_printed;
-    int             len;
+    unsigned int    len;
 
     n_printed = 0;
     len = ft_strlen(str);
+    if (var->is_precision && var->precision <= len)
+        len = var->precision;
     if (var->minus)
-        n_printed += ft_putstr(str);
+        n_printed += write(1, str, len);
     while (var->width > len)
     {
         if (var->zero == TRUE)
@@ -58,6 +52,6 @@ int     print_s(char *str, s_var *var)
         var->width--;
     }
     if (var->minus == FALSE)
-        n_printed += ft_putstr(str);
+        n_printed += write(1, str, len);
     return (n_printed);
 }

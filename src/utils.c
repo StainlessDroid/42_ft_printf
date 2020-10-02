@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/01 19:54:03 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/02 17:21:24 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void init_flags(s_var *var)
 	var->width = 0;
 	var->minus = FALSE;
 	var->zero = FALSE;
+    var->is_precision = FALSE;
 }
 
 int		is_type(char c)

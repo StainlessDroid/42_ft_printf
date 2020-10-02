@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/01 21:59:24 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/02 17:33:08 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,14 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
         {
             format++;
             i++;
-            var->width = va_arg(arg, int);
+            var->width = va_arg(arg,unsigned int);
         }
         else if (*format == '.')
         {
             format++;
             i++;
             if (*format == '*')
-                var->precision = va_arg(arg, int);
+                var->precision = va_arg(arg,unsigned int);
             else
             {
                 var->precision = (get_number(format));
@@ -70,6 +70,7 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
                 i += tmp;
                 format += tmp;
             }
+            var->is_precision = TRUE;
         }
         else if (ft_isdigit(*format))
         {
