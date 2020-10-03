@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/02 19:55:33 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/03 20:04:10 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int     put_x(unsigned int nb, unsigned int len, bool mayus, s_var *var)
 {
-    unsigned int    n_printed;
+    unsigned int n_printed;
 
     n_printed = 0;
-    if (!len)
+    if (var->is_precision && var->precision == 0)
         return (0);
     while (var->precision > len)
     {
-    	n_printed += ft_putchar('0');
-    	var->precision--;
+        n_printed += ft_putchar('0');
+        var->precision--;
     }
     n_printed += ft_itohex(nb, mayus);
     return (n_printed);
@@ -32,22 +32,22 @@ int     print_x(unsigned int nb, bool mayus, s_var *var)
 {
 	unsigned int	len;
     unsigned int    n_printed;
+    unsigned int    pre_printed;
 
-    len = ft_nbrlen(nb, 16);
+    len = (var->is_precision && !var->precision) ? 0 : ft_nbrlen(nb, 16);
     n_printed = 0;
-    if (var->is_precision && var->precision < len)
-        len = var->precision;
+    pre_printed = (var->precision > len) ? (var->precision - len) : 0;
     if (var->minus)
         n_printed += put_x(nb, len, mayus, var);
-    while (var->width > len)
-    {
-        if (var->zero)
-    	    n_printed += ft_putchar('0');
+    while (var->width > (len + pre_printed))
+    {   
+        if (var->zero && !var->is_precision)
+            n_printed += ft_putchar('0');
         else
             n_printed += ft_putchar(' ');
-    	var->width--;
+        var->width--;
     }
-    if (var->minus == FALSE)
+    if (var->minus ==  FALSE)
         n_printed += put_x(nb, len, mayus, var);
     return (n_printed);
 }
@@ -66,7 +66,7 @@ int     print_p(unsigned long nb, s_var *var)
     }
     while (var->width > len)
     {
-        if (var->zero == TRUE)
+        if (var->zero && !var->is_precision)
             n_printed += ft_putchar('0');
         else
              n_printed += ft_putchar(' ');

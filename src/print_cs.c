@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/02 17:57:46 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/03 20:21:31 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int     print_c(char c, s_var *var)
         n_printed += ft_putchar(c);
     while(var->width > 1)
     {
-        if (var->zero == TRUE)
+        if (var->zero)
             n_printed += ft_putchar('0');
         else
             n_printed += ft_putchar(' ');
@@ -45,7 +45,7 @@ int     print_s(char *str, s_var *var)
         n_printed += write(1, str, len);
     while (var->width > len)
     {
-        if (var->zero == TRUE)
+        if (var->zero)
             n_printed += ft_putchar('0');
         else
             n_printed += ft_putchar(' ');

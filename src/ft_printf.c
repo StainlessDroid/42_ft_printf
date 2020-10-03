@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/02 17:33:08 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/03 20:12:04 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
     {
         if (*format == '-')
         {
+            var->zero = FALSE;
             var->minus = TRUE;
             format++;
             i++;
