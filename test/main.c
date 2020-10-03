@@ -26,51 +26,14 @@ int				*ptr = &i1;
 
 int     main(void)
 {
-    //printf("\033[0;32m");   // Set printf color output to GREEN
+  //printf("\033[0;32m");   // Set printf color output to GREEN
+  printf("i1=%.7d\n", i1);
+  printf("i2=%.7d\n", i2);
+  //printf("\033[0m");      // Set printf color back to default
 
-	//printf("Decimal integers:%d\n%i\n", i1, i2);
-	//ft_printf("Decimal integers:\n%-.8d\n", i1);
-	//printf("Hexadecimal:%.8x\n%X\n", ui1, ui1);
-	//ft_printf("Hexadecimal:\n%0x\n%.*X\n", ui1, ui2, ui1);
-	//printf("Unsigned:%.*u\n", ui2, ui1);
-	//ft_printf("Unsigned:\n%u\n", ui2, ui1);
-	//printf("Characters:%c\n%c\n", c1, c2);
-	//ft_printf("Characters:\n%04c\n%c\n", c1, c2);
-	//printf("Strings:%s\n%s\n", s1, s2);
-	//ft_printf("Strings:\n%7.7s%7.7s", "hello", "world");
-	//printf("Memory Address:%.*p\n", -3, 0);
-	ft_printf("%.*p\n", -3, s1);
-	ft_printf("%.*p\n", -1, s1);
-	ft_printf("%.*p\n", -3, 0);
-	ft_printf("%.*p\n", -3, 0);
+  ft_printf("i1=%.7d\n", i1);
+  ft_printf("i2=%.7d\n", i2);
 	//system ("leaks Test_ex");
-
-
-
-
-/*
-	Test 4203 (p_neg_prec_star_01) : FAILED.
-    First line of code: {return test("%.*p", -3, s_hello);}
-    Timed out
-
-Test 4204 (p_neg_prec_star_02) : FAILED.
-    First line of code: {return test("%.*p", -1, s_hello);}
-    Timed out
-
-Test 4205 (p_neg_prec_star_03) : FAILED.
-    First line of code: {return test("%.*p", -3, 0);}
-      expected output : "0x0"
-      your output     : "0x1019be66c"
-      expected (nonprintable as hex) : "0x0"
-      actual   (nonprintable as hex) : "0x1019be66c"
-
-Test 4206 (p_neg_prec_star_04) : FAILED.
-    First line of code: {return test("%.*p", -1, 0);}
-      expected output : "0x0"
-      your output     : "0x1019be66c"
-      expected (nonprintable as hex) : "0x0"
-      actual   (nonprintable as hex) : "0x1019be66c"
-*/
 
 	return (0);
 }

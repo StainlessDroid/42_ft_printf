@@ -12,32 +12,10 @@
 
 #include "../header.h"
 
-/*
-int     width_di(int nb, unsigned int len, s_var *var)
-{
-    unsigned int    n_printed;
-
-    n_printed = 0;
-    if (var->minus)
-        n_printed += ft_putnbr(nb);
-    while (var->width > len)
-    {
-        if (var->zero)
-            n_printed += ft_putchar('0');
-        else
-            n_printed += ft_putchar(' ');
-        var->width--;
-    }
-    if (var->minus == FALSE)
-        n_printed += ft_putnbr(nb);
-    return (n_printed);
-}
-*/
-
 int     print_di(int nb, s_var *var)
 {
-    int		            len;
-    unsigned int		n_printed;
+    unsigned int    len;
+    unsigned int	n_printed;
 
     len = ft_nbrlen(nb, 10);
     n_printed = 0;
@@ -60,8 +38,8 @@ int     print_di(int nb, s_var *var)
 
 int     print_u(unsigned int nb, s_var *var)
 {
-    int                 len;
-    unsigned int        n_printed;
+    unsigned int    len;
+    unsigned int    n_printed;
 
     len = ft_nbrlen(nb, 10);
     n_printed = 0;

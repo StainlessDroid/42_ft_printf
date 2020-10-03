@@ -10,21 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+**  ft_nbrlen doesn't count for the negative sing if the number is < 0
+**  It returns ONLY the number of DIGITS
+*/
+
 #include "libft.h"
 
 unsigned int     ft_nbrlen(long nb, int base_len)
 {
     long        n_digits;
-    bool        neg;
 
-    neg = nb < 0 ? TRUE : FALSE;
     n_digits = 1;
-    while (nb / base_len > 0)
+    if (nb < 0)
+        nb *= -1;
+    while (nb >= base_len)
     {
         n_digits++;
         nb /= base_len;
     }
-    if (neg)
-        n_digits++;
     return (n_digits);
 }
