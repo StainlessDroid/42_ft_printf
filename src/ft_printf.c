@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/03 20:12:04 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/04 19:06:48 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
             else
             {
                 var->precision = (get_number(format));
-                tmp = ft_nbrlen(var->precision, 10);
+                tmp = (*format == '0') ? (ft_nbrlen(var->precision, 10) + 1) :
+                ft_nbrlen(var->precision, 10);
                 i += tmp;
                 format += tmp;
             }
@@ -87,9 +88,7 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
 
 void            check_type(const char c, va_list arg, s_var *var)
 {
-    if (!arg)
-        ft_putstr("(null)");
-    else if ( c == 'c')
+    if ( c == 'c')
         var->printed_chars += print_c(va_arg(arg, int), var);
     else if (c == 's')
         var->printed_chars += print_s(va_arg(arg, char*), var);

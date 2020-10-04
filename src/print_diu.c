@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:29:35 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/03 20:52:22 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/04 20:04:28 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,12 @@ int     print_di(int nb, s_var *var)
     unsigned int    len;
     unsigned int	n_printed;
     unsigned int    pre_printed;
+    bool            neg;
 
     len = (var->is_precision && !var->precision) ? 0 : ft_nbrlen(nb, 10);
     n_printed = 0;
     pre_printed = (var->precision > len) ? (var->precision - len) : 0;
+    neg = (nb < 0) ? TRUE : FALSE;
     if (nb < 0)
         pre_printed++;
     if (var->minus)
@@ -49,7 +51,15 @@ int     print_di(int nb, s_var *var)
     while (var->width > (pre_printed + len))
     {
         if (var->zero && !var->is_precision)
+        {
+            if (neg)
+            {
+                n_printed += ft_putchar('-');
+                neg = FALSE;
+                nb *= -1;
+            }
             n_printed += ft_putchar('0');
+        }
         else
             n_printed += ft_putchar(' ');
         var->width--;
@@ -71,7 +81,7 @@ int     put_u(unsigned int nb, unsigned int len, s_var *var)
         n_printed += ft_putchar('0');
         var->precision--;
     }
-    n_printed += ft_putnbr(nb);
+    n_printed += (nb == 4294967295) ? write(1, "4294967295", 10) : ft_putnbr(nb);
     return (n_printed);
 }
 

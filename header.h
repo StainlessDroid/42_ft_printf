@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:00:09 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/03 18:09:48 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/04 19:34:02 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int				print_p(unsigned long ptr, s_var *var);
 int				print_x(unsigned int nb, bool mayus, s_var *var);
 int				ft_itohex(unsigned long nb, bool mayus);
 int				get_number(const char *str);
+int     		put_di(int nb, unsigned int len, s_var *var);
+int     		put_u(unsigned int nb, unsigned int len, s_var *var);
 
 #endif

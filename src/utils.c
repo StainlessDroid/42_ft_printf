@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/03 18:10:01 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/04 18:13:48 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int    get_number(const char *str)
         len--;
     }
     number[i] = '\0';
-
     return (ft_atoi(number));
 }
 
