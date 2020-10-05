@@ -12,6 +12,23 @@
 
 #include "../header.h"
 
+unsigned int    get_precision(const char *format, va_list arg, s_var *var)
+{
+    unsigned int    i;
+
+    i = 1;
+    if (*format == '*')
+        var->precision = va_arg(arg, unsigned int);
+    else
+    {
+        var->precision = get_number(format);
+        i += (*format == '0') ? (ft_nbrlen(var->precision, 10) + 1) :
+        ft_nbrlen(var->precision, 10);
+    }
+    var->is_precision = TRUE;
+    return (i);
+}
+
 unsigned int    digit_flags(const char *format, s_var *var)
 {
     unsigned int    i;
@@ -56,24 +73,10 @@ unsigned int    find_flags(const char *format, va_list arg, s_var *var)
         {
             format++;
             i++;
-            var->width = va_arg(arg,unsigned int);
+            var->width = va_arg(arg, unsigned int);
         }
         else if (*format == '.')
-        {
-            format++;
-            i++;
-            if (*format == '*')
-                var->precision = va_arg(arg,unsigned int);
-            else
-            {
-                var->precision = (get_number(format));
-                tmp = (*format == '0') ? (ft_nbrlen(var->precision, 10) + 1) :
-                ft_nbrlen(var->precision, 10);
-                i += tmp;
-                format += tmp;
-            }
-            var->is_precision = TRUE;
-        }
+            i += get_precision(++format, arg, var);
         else if (ft_isdigit(*format))
         {
             tmp = digit_flags(format, var);
