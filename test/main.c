@@ -27,12 +27,12 @@ int				*ptr = &i1;
 int     main(void)
 {
   //printf("\033[0;32m");   // Set printf color output to GREEN
-  printf("%.s\n", "hello");
-  printf("%.s\n", "hello");
+  printf("%.7i\n", i1);
+  printf("%.7i\n", i2);
   //printf("\033[0m");      // Set printf color back to default
 
-  ft_printf("%.s\n", "hello");
-  ft_printf("%.s\n", "hello");
+  ft_printf("%.7i\n", i1);
+  ft_printf("%.7i\n", i2);
 	//system ("leaks Test_ex");
 
 	return (0);

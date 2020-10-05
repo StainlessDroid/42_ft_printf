@@ -14,7 +14,8 @@ NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = src/ft_printf.c src/utils.c src/print_cs.c src/print_diu.c src/print_xp.c
+SRC = src/ft_printf.c src/utils.c src/print_cs.c src/print_di.c \
+		src/print_xp.c src/print_u.c
 
 OBJS = $(SRC:.c=.o)
 

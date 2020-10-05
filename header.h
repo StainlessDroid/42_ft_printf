@@ -23,6 +23,7 @@ typedef struct		variables
 	bool			zero;
 	bool			minus;
 	bool			is_precision;
+	bool			nb_neg;
 }					s_var;
 
 int				ft_printf(const char *format, ...);

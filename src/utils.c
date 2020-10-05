@@ -20,6 +20,7 @@ void init_flags(s_var *var)
 	var->minus = FALSE;
 	var->zero = FALSE;
     var->is_precision = FALSE;
+    var->nb_neg = FALSE;
 }
 
 int		is_type(char c)
