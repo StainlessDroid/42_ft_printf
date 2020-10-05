@@ -17,10 +17,22 @@ void init_flags(s_var *var)
 	var->printed_chars = 0;
 	var->precision = 0;
 	var->width = 0;
+    var->format_pos = 0;
 	var->minus = FALSE;
 	var->zero = FALSE;
     var->is_precision = FALSE;
     var->nb_neg = FALSE;
+
+}
+
+unsigned int    minus(s_var *var)
+{
+    unsigned int    i;
+
+    i = 1;
+    var->zero = FALSE;
+    var->minus = TRUE;
+    return (i); 
 }
 
 int		is_type(char c)

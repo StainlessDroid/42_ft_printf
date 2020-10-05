@@ -20,6 +20,7 @@ typedef struct		variables
 	int				printed_chars;
 	unsigned int	width;
 	unsigned int	precision;
+	unsigned int	format_pos;
 	bool			zero;
 	bool			minus;
 	bool			is_precision;
@@ -40,7 +41,9 @@ int				print_p(unsigned long ptr, s_var *var);
 int				print_x(unsigned int nb, bool mayus, s_var *var);
 int				ft_itohex(unsigned long nb, bool mayus);
 int				get_number(const char *str);
+unsigned int    get_precision(const char *format, va_list arg, s_var *var);
 int     		put_di(int nb, unsigned int len, s_var *var);
 int     		put_u(unsigned int nb, unsigned int len, s_var *var);
+unsigned int    minus(s_var *var);
 
 #endif

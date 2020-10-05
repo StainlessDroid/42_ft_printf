@@ -56,35 +56,26 @@ unsigned int    digit_flags(const char *format, s_var *var)
 unsigned int    find_flags(const char *format, va_list arg, s_var *var)
 {
     unsigned int    i;
-    unsigned int    tmp;
 
     i = 0;
-    tmp = 0;
     while (!is_type(*format))
     {
         if (*format == '-')
-        {
-            var->zero = FALSE;
-            var->minus = TRUE;
-            format++;
-            i++;
-        }
+            var->format_pos += minus(var);
         else if (*format == '*')
         {
-            format++;
-            i++;
+            var->format_pos++;
             var->width = va_arg(arg, unsigned int);
         }
         else if (*format == '.')
-            i += get_precision(++format, arg, var);
+            var->format_pos += get_precision(++format, arg, var);
         else if (ft_isdigit(*format))
-        {
-            tmp = digit_flags(format, var);
-            i += tmp;
-            format += tmp;
-        }
+            var->format_pos += digit_flags(format, var);
         else
             break;
+        format += var->format_pos;
+        i += var->format_pos;
+        var->format_pos = 0;
     }
     return (i);
 }
