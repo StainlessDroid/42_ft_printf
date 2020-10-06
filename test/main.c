@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 18:56:34 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/04 19:15:55 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 20:08:59 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int				*ptr = &i1;
 int     main(void)
 {
   //printf("\033[0;32m");   // Set printf color output to GREEN
-  printf("%.7i\n", i1);
-  printf("%.7i\n", i2);
+  printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+  printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
   //printf("\033[0m");      // Set printf color back to default
 
-  ft_printf("%.7i\n", i1);
-  ft_printf("%.7i\n", i2);
+  ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+  ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
 	//system ("leaks Test_ex");
 
 	return (0);

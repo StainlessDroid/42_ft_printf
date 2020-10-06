@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 17:59:00 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 19:51:40 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int		print_c(char c, s_var *var)
+int		print_c(char c, t_var *var)
 {
 	int		n_printed;
 
@@ -32,7 +32,7 @@ int		print_c(char c, s_var *var)
 	return (n_printed);
 }
 
-int		print_s(char *str, s_var *var)
+int		print_s(char *str, t_var *var)
 {
 	int		n_printed;
 	int		len;

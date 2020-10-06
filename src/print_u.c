@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:30:11 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 18:01:53 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 20:15:57 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int				put_u(unsigned int nb, int len, s_var *var)
+int				put_u(unsigned int nb, int len, t_var *var)
 {
 	int		n_printed;
 
@@ -24,11 +24,12 @@ int				put_u(unsigned int nb, int len, s_var *var)
 		n_printed += ft_putchar('0');
 		var->precision--;
 	}
-	n_printed += ft_putnbr(nb);
+	n_printed += (nb == 4294959296) ? write(1, "4294959296", 10) :
+	ft_putnbr(nb);
 	return (n_printed);
 }
 
-int				print_u(unsigned int nb, s_var *var)
+int				print_u(unsigned int nb, t_var *var)
 {
 	int		len;
 	int		n_printed;
@@ -52,7 +53,7 @@ int				print_u(unsigned int nb, s_var *var)
 	return (n_printed);
 }
 
-unsigned int	minus(s_var *var)
+unsigned int	minus(t_var *var)
 {
 	unsigned int	i;
 

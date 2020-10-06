@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 18:05:27 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 19:52:53 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void			init_flags(s_var *var)
+void			init_flags(t_var *var)
 {
 	var->printed_chars = 0;
 	var->precision = 0;
@@ -25,7 +25,7 @@ void			init_flags(s_var *var)
 
 }
 
-unsigned int	star(s_var *var, va_list arg)
+unsigned int	star(t_var *var, va_list arg)
 {
 	unsigned int	i;
 

@@ -6,13 +6,13 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/16 18:59:04 by mpascual          #+#    #+#              #
-#    Updated: 2020/10/01 21:32:42 by mpascual         ###   ########.fr        #
+#    Updated: 2020/10/06 20:00:21 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Test_ex
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra #-Werror
 
 SRC = main.c
 

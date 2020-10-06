@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:29:35 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 18:00:46 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 20:10:51 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int		put_di(int nb, int len, s_var *var)
+int		put_di(int nb, int len, t_var *var)
 {
 	int		n_printed;
 
@@ -29,11 +29,12 @@ int		put_di(int nb, int len, s_var *var)
 		n_printed += ft_putchar('0');
 		var->precision--;
 	}
-	n_printed += ft_putnbr(nb);
+	n_printed += (nb == -2147483648) ? write(1, "2147483648", 10) :
+	ft_putnbr(nb);
 	return (n_printed);
 }
 
-int		di_width(int len, bool neg, s_var *var)
+int		di_width(int len, bool neg, t_var *var)
 {
 	int		n_printed;
 
@@ -57,7 +58,7 @@ int		di_width(int len, bool neg, s_var *var)
 	return (n_printed);
 }
 
-int		print_di(int nb, s_var *var)
+int		print_di(int nb, t_var *var)
 {
 	int		len;
 	int		n_printed;

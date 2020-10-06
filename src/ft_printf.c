@@ -6,19 +6,22 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 17:57:03 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 20:32:15 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int				get_precision(const char *format, va_list arg, s_var *var)
+int				get_precision(const char *format, va_list arg, t_var *var)
 {
-	int    i;
+	int		i;
 
 	i = 1;
 	if (*format == '*')
+	{
 		var->precision = va_arg(arg, int);
+		i++;
+	}
 	else
 	{
 		var->precision = get_number(format);
@@ -31,9 +34,9 @@ int				get_precision(const char *format, va_list arg, s_var *var)
 	return (i);
 }
 
-unsigned int	digit_flags(const char *format, s_var *var)
+unsigned int	digit_flags(const char *format, t_var *var)
 {
-	unsigned int    i;
+	unsigned int	i;
 
 	i = 0;
 	while (*format && ft_isdigit(*format))
@@ -55,9 +58,9 @@ unsigned int	digit_flags(const char *format, s_var *var)
 	return (i);
 }
 
-unsigned int	find_flags(const char *format, va_list arg, s_var *var)
+unsigned int	find_flags(const char *format, va_list arg, t_var *var)
 {
-	unsigned int    i;
+	unsigned int	i;
 
 	i = 0;
 	while (!is_type(*format))
@@ -79,7 +82,7 @@ unsigned int	find_flags(const char *format, va_list arg, s_var *var)
 	return (i);
 }
 
-void			check_type(const char c, va_list arg, s_var *var)
+void			check_type(const char c, va_list arg, t_var *var)
 {
 	if (c == 'c')
 		var->printed_chars += print_c(va_arg(arg, int), var);
@@ -102,10 +105,10 @@ void			check_type(const char c, va_list arg, s_var *var)
 int				ft_printf(const char *format, ...)
 {
 	va_list     arg;
-	s_var       *var;
+	t_var       *var;
 	int         n_printed;
 
-	if (!(var = malloc(sizeof(s_var) + 1)))
+	if (!(var = malloc(sizeof(t_var) + 1)))
 		return (-1);
 	va_start(arg, format);
 	while (*format)

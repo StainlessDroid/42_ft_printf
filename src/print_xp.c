@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:33:01 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 18:03:51 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 19:52:30 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int		put_x(unsigned int nb, int len, bool mayus, s_var *var)
+int		put_x(unsigned int nb, int len, bool mayus, t_var *var)
 {
 	int		n_printed;
 
@@ -28,7 +28,7 @@ int		put_x(unsigned int nb, int len, bool mayus, s_var *var)
 	return (n_printed);
 }
 
-int		print_x(unsigned int nb, bool mayus, s_var *var)
+int		print_x(unsigned int nb, bool mayus, t_var *var)
 {
 	int		len;
 	int		n_printed;
@@ -52,7 +52,7 @@ int		print_x(unsigned int nb, bool mayus, s_var *var)
 	return (n_printed);
 }
 
-int		print_p(unsigned long nb, s_var *var)
+int		print_p(unsigned long nb, t_var *var)
 {
 	int		n_printed;
 	int		len;
