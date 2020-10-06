@@ -6,7 +6,7 @@
 #    By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/14 17:01:42 by mpascual          #+#    #+#              #
-#    Updated: 2020/09/30 18:58:38 by mpascual         ###   ########.fr        #
+#    Updated: 2020/10/06 16:52:08 by mpascual         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,6 @@ $(NAME): $(OBJS)
 	cd libft && make
 	cp libft/libft.a $(NAME)
 	ar -crs $(NAME) $(OBJS)
-	cd libft && make clean
 
 norme: fclean
 	@norminette ./libft/

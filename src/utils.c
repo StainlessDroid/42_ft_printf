@@ -6,36 +6,40 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/04 18:13:48 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:43:44 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void init_flags(s_var *var)
+void			init_flags(s_var *var)
 {
 	var->printed_chars = 0;
 	var->precision = 0;
 	var->width = 0;
-    var->format_pos = 0;
+	var->format_pos = 0;
 	var->minus = FALSE;
 	var->zero = FALSE;
-    var->is_precision = FALSE;
-    var->nb_neg = FALSE;
+	var->is_precision = FALSE;
+	var->nb_neg = FALSE;
 
 }
 
-unsigned int    minus(s_var *var)
+unsigned int	star(s_var *var, va_list arg)
 {
-    unsigned int    i;
+	unsigned int    i;
 
-    i = 1;
-    var->zero = FALSE;
-    var->minus = TRUE;
-    return (i); 
+	i = 1;
+	var->width = va_arg(arg, int);
+	if (var->width < 0)
+	{
+		minus(var);
+		var->width *= -1;
+	}
+	return (i);
 }
 
-int		is_type(char c)
+int				is_type(char c)
 {
 	if (c == 'c' ||  c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
 		|| c == 'X' || c == 'p' || c == '%')
@@ -44,27 +48,27 @@ int		is_type(char c)
 		return (0);
 }
 
-int    get_number(const char *str)
+int				get_number(const char *str)
 {
-    int        i;
-    int        len;
-    char       *number;
+	int        i;
+	int        len;
+	char       *number;
 
-    i = 0;
-    len = 0;
-    while (ft_isdigit(str[len]))
-        len++;
-    if (!(number = malloc(len + 1)))
-        return (-1);
-    i = 0;
-    while (len > 0)
-    {
-        number[i] = str[i];
-        i++;
-        len--;
-    }
-    number[i] = '\0';
-    return (ft_atoi(number));
+	i = 0;
+	len = 0;
+	while (ft_isdigit(str[len]))
+		len++;
+	if (!(number = malloc(len + 1)))
+		return (-1);
+	i = 0;
+	while (len > 0)
+	{
+		number[i] = str[i];
+		i++;
+		len--;
+	}
+	number[i] = '\0';
+	return (ft_atoi(number));
 }
 
 /*
@@ -72,25 +76,25 @@ int    get_number(const char *str)
 ** characters of the hex number are mayus
 */
 
-int    ft_itohex(unsigned long nb, bool  mayus)
+int			ft_itohex(unsigned long nb, bool  mayus)
 {
-    unsigned long   num;
-    unsigned int    l;
-    int             a;
+	unsigned long   num;
+	unsigned int    l;
+	int             a;
 
-    a = mayus ? 55 : 87;
-    num = nb;
-    l = 0;
-    if (num >= 16)
-    {
-        ft_itohex(num / 16, mayus);
-        ft_putchar(num % 16 + (num % 16 > 9 ? a : '0'));
-        l++;
-    }
-    else
-    {
-        ft_putchar(num + (num % 16 > 9 ? a : '0'));
-        l++;
-    }
-    return (l);
+	a = mayus ? 55 : 87;
+	num = nb;
+	l = 0;
+	if (num >= 16)
+	{
+		ft_itohex(num / 16, mayus);
+		ft_putchar(num % 16 + (num % 16 > 9 ? a : '0'));
+		l++;
+	}
+	else
+	{
+		ft_putchar(num + (num % 16 > 9 ? a : '0'));
+		l++;
+	}
+	return (l);
 }
