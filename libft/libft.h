@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/01 21:14:24 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:54:45 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef enum
 {
 	FALSE, TRUE
-} 				bool;
+} 	bool;
 
 typedef	struct	s_list
 {

@@ -6,20 +6,20 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 17:41:15 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 17:59:00 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     print_c(char c, s_var *var)
+int		print_c(char c, s_var *var)
 {
-	int     n_printed;
+	int		n_printed;
 
 	n_printed = 0;
 	if (var->minus)
 		n_printed += ft_putchar(c);
-	while(var->width > 1)
+	while (var->width > 1)
 	{
 		if (var->zero)
 			n_printed += ft_putchar('0');
@@ -32,10 +32,10 @@ int     print_c(char c, s_var *var)
 	return (n_printed);
 }
 
-int     print_s(char *str, s_var *var)
+int		print_s(char *str, s_var *var)
 {
-	int             n_printed;
-	int             len;
+	int		n_printed;
+	int		len;
 
 	if (!str)
 		str = "(null)";

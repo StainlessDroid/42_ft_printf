@@ -6,15 +6,15 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:29:35 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 17:41:28 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 18:00:46 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     put_di(int nb, int len, s_var *var)
+int		put_di(int nb, int len, s_var *var)
 {
-	int    n_printed;
+	int		n_printed;
 
 	n_printed = 0;
 	if (var->is_precision && var->precision == 0)
@@ -33,9 +33,9 @@ int     put_di(int nb, int len, s_var *var)
 	return (n_printed);
 }
 
-int    di_width(int len, bool neg, s_var *var)
+int		di_width(int len, bool neg, s_var *var)
 {
-	int     n_printed;
+	int		n_printed;
 
 	n_printed = 0;
 	while (var->width > len)
@@ -57,12 +57,12 @@ int    di_width(int len, bool neg, s_var *var)
 	return (n_printed);
 }
 
-int     print_di(int nb, s_var *var)
+int		print_di(int nb, s_var *var)
 {
-	int     len;
-	int     n_printed;
-	int     pre_printed;
-	bool    neg;
+	int		len;
+	int		n_printed;
+	int		pre_printed;
+	bool	neg;
 
 	len = (var->is_precision && !var->precision) ? 0 : ft_nbrlen(nb, 10);
 	n_printed = 0;

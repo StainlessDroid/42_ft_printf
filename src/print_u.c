@@ -6,15 +6,15 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:30:11 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 17:42:52 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/10/06 18:01:53 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int     put_u(unsigned int nb, int len, s_var *var)
+int				put_u(unsigned int nb, int len, s_var *var)
 {
-	int n_printed;
+	int		n_printed;
 
 	n_printed = 0;
 	if (var->is_precision && var->precision == 0)
@@ -28,11 +28,11 @@ int     put_u(unsigned int nb, int len, s_var *var)
 	return (n_printed);
 }
 
-int     print_u(unsigned int nb, s_var *var)
+int				print_u(unsigned int nb, s_var *var)
 {
-	int    len;
-	int    n_printed;
-	int    pre_printed;
+	int		len;
+	int		n_printed;
+	int		pre_printed;
 
 	len = (var->is_precision && !var->precision) ? 0 : ft_nbrlen(nb, 10);
 	n_printed = 0;
@@ -54,10 +54,10 @@ int     print_u(unsigned int nb, s_var *var)
 
 unsigned int	minus(s_var *var)
 {
-	unsigned int    i;
+	unsigned int	i;
 
 	i = 1;
 	var->zero = FALSE;
 	var->minus = TRUE;
-	return (i); 
+	return (i);
 }
