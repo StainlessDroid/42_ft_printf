@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 19:52:53 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/12 20:03:37 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void			init_flags(t_var *var)
 	var->zero = FALSE;
 	var->is_precision = FALSE;
 	var->nb_neg = FALSE;
-
 }
 
 unsigned int	star(t_var *var, va_list arg)
@@ -41,7 +40,7 @@ unsigned int	star(t_var *var, va_list arg)
 
 int				is_type(char c)
 {
-	if (c == 'c' ||  c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
+	if (c == 'c' || c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
 		|| c == 'X' || c == 'p' || c == '%')
 		return (1);
 	else
@@ -76,7 +75,7 @@ int				get_number(const char *str)
 ** characters of the hex number are mayus
 */
 
-int				ft_itohex(unsigned long nb, bool  mayus)
+int				ft_itohex(unsigned long nb, bool mayus)
 {
 	unsigned long	num;
 	unsigned int	l;

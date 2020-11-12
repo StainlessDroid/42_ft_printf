@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 20:32:15 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 00:23:17 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ int				get_precision(const char *format, va_list arg, t_var *var)
 	}
 	else
 	{
-		var->precision = get_number(format);
-		i += (*format == '0') ? (ft_nbrlen(var->precision, 10) + 1) :
-		ft_nbrlen(var->precision, 10);
+		if (!ft_isdigit(*format))
+			var->precision = 0;
+		else
+		{
+			var->precision = get_number(format);
+			while (ft_isdigit(*format++))
+				i++;
+		}
 	}
 	var->is_precision = TRUE;
 	if (var->precision < 0)
@@ -99,14 +104,15 @@ void			check_type(const char c, va_list arg, t_var *var)
 	else if (c == 'X')
 		var->printed_chars += print_x(va_arg(arg, unsigned int), TRUE, var);
 	else if (c == '%')
-		var->printed_chars += print_c('%', var);
+		var->printed_chars += ft_putchar('%');
+
 }
 
 int				ft_printf(const char *format, ...)
 {
-	va_list     arg;
-	t_var       *var;
-	int         n_printed;
+	va_list		arg;
+	t_var		*var;
+	int			n_printed;
 
 	if (!(var = malloc(sizeof(t_var) + 1)))
 		return (-1);

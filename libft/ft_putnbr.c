@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/16 19:54:54 by manu              #+#    #+#             */
-/*   Updated: 2020/10/06 18:16:45 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/12 20:22:14 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,22 @@ int		ft_putnbr(int nb)
 	else
 		len += ft_putchar(num + '0');
 	return (len);
+}
+
+int		ft_putnbr_u(unsigned int nb)
+{
+	unsigned int	num;
+	unsigned int	len;
+
+	num = nb;
+	len = 0;
+	if (num >= 10)
+	{
+		ft_putnbr(num / 10);
+		ft_putchar(num % 10 + '0');
+		len++;
+	}
+	else
+		len += ft_putchar(num + '0');
+	return (len);	
 }

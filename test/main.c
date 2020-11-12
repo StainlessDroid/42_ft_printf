@@ -26,14 +26,11 @@ int				*ptr = &i1;
 
 int     main(void)
 {
-  //printf("\033[0;32m");   // Set printf color output to GREEN
-  printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
-  printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
-  //printf("\033[0m");      // Set printf color back to default
+	//printf("%s\n", NULL);
+	//printf("%.03s\n", NULL);
 
-  ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
-  ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
-	//system ("leaks Test_ex");
+	ft_printf("%s\n", NULL);
+	ft_printf("%.05s\n", NULL);
 
 	return (0);
 }

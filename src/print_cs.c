@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:23:22 by mpascual          #+#    #+#             */
-/*   Updated: 2020/10/06 19:51:40 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 00:16:38 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		print_s(char *str, t_var *var)
 	int		len;
 
 	if (!str)
-		str = "(null)";
+		str = (var->is_precision && var->precision < 6) ? "" : "(null)";
 	n_printed = 0;
 	len = (var->is_precision && !var->precision) ? 0 : ft_strlen(str);
 	if (var->is_precision && var->precision <= len)
