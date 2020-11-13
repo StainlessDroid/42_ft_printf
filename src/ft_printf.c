@@ -6,13 +6,13 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:17:37 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 00:23:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 03:08:05 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-int				get_precision(const char *format, va_list arg, t_var *var)
+int			get_precision(const char *format, va_list arg, t_var *var)
 {
 	int		i;
 
@@ -35,13 +35,13 @@ int				get_precision(const char *format, va_list arg, t_var *var)
 	}
 	var->is_precision = TRUE;
 	if (var->precision < 0)
-		var->precision *= -1;
+		var->is_precision = FALSE;
 	return (i);
 }
 
-unsigned int	digit_flags(const char *format, t_var *var)
+int			digit_flags(const char *format, t_var *var)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (*format && ft_isdigit(*format))
@@ -63,9 +63,9 @@ unsigned int	digit_flags(const char *format, t_var *var)
 	return (i);
 }
 
-unsigned int	find_flags(const char *format, va_list arg, t_var *var)
+int			find_flags(const char *format, va_list arg, t_var *var)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	while (!is_type(*format))
@@ -87,28 +87,27 @@ unsigned int	find_flags(const char *format, va_list arg, t_var *var)
 	return (i);
 }
 
-void			check_type(const char c, va_list arg, t_var *var)
+void		check_type(const char c, va_list arg, t_var *var)
 {
 	if (c == 'c')
 		var->printed_chars += print_c(va_arg(arg, int), var);
 	else if (c == 's')
 		var->printed_chars += print_s(va_arg(arg, char*), var);
 	else if (c == 'd' || c == 'i')
-		var->printed_chars += print_di(va_arg(arg, int), var);
+		print_di(va_arg(arg, int), var);
 	else if (c == 'u')
-		var->printed_chars += print_u(va_arg(arg, unsigned int), var);
+		print_u(va_arg(arg, unsigned int), var);
 	else if (c == 'p')
-		var->printed_chars += print_p(va_arg(arg, unsigned long), var);
+		print_p(va_arg(arg, unsigned long), var);
 	else if (c == 'x')
-		var->printed_chars += print_x(va_arg(arg, unsigned int), FALSE, var);
+		print_x(va_arg(arg, unsigned int), FALSE, var);
 	else if (c == 'X')
-		var->printed_chars += print_x(va_arg(arg, unsigned int), TRUE, var);
+		print_x(va_arg(arg, unsigned int), TRUE, var);
 	else if (c == '%')
 		var->printed_chars += ft_putchar('%');
-
 }
 
-int				ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		arg;
 	t_var		*var;
@@ -116,6 +115,7 @@ int				ft_printf(const char *format, ...)
 
 	if (!(var = malloc(sizeof(t_var) + 1)))
 		return (-1);
+	var->printed_chars = 0;
 	va_start(arg, format);
 	while (*format)
 	{

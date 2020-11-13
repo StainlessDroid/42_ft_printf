@@ -6,15 +6,14 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/12 20:03:37 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 02:54:47 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header.h"
 
-void			init_flags(t_var *var)
+void		init_flags(t_var *var)
 {
-	var->printed_chars = 0;
 	var->precision = 0;
 	var->width = 0;
 	var->format_pos = 0;
@@ -24,9 +23,9 @@ void			init_flags(t_var *var)
 	var->nb_neg = FALSE;
 }
 
-unsigned int	star(t_var *var, va_list arg)
+int			star(t_var *var, va_list arg)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 1;
 	var->width = va_arg(arg, int);
@@ -38,7 +37,7 @@ unsigned int	star(t_var *var, va_list arg)
 	return (i);
 }
 
-int				is_type(char c)
+int			is_type(char c)
 {
 	if (c == 'c' || c == 's' || c == 'i' || c == 'd' || c == 'u' || c == 'x'
 		|| c == 'X' || c == 'p' || c == '%')
@@ -47,7 +46,7 @@ int				is_type(char c)
 		return (0);
 }
 
-int				get_number(const char *str)
+int			get_number(const char *str)
 {
 	int			i;
 	int			len;
@@ -75,25 +74,19 @@ int				get_number(const char *str)
 ** characters of the hex number are mayus
 */
 
-int				ft_itohex(unsigned long nb, bool mayus)
+void		ft_itohex(unsigned long nb, bool mayus, t_var *var)
 {
 	unsigned long	num;
-	unsigned int	l;
 	int				a;
 
 	a = mayus ? 55 : 87;
 	num = nb;
-	l = 0;
 	if (num >= 16)
 	{
-		ft_itohex(num / 16, mayus);
+		ft_itohex(num / 16, mayus, var);
 		ft_putchar(num % 16 + (num % 16 > 9 ? a : '0'));
-		l++;
+		var->printed_chars++;
 	}
 	else
-	{
-		ft_putchar(num + (num % 16 > 9 ? a : '0'));
-		l++;
-	}
-	return (l);
+		var->printed_chars += ft_putchar(num + (num % 16 > 9 ? a : '0'));
 }
