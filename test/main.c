@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/16 18:56:34 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 03:04:30 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 18:00:53 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ int		putnbr(int nb)
 
 int     main(void)
 {
-	//printf("%-05")i;
+	//printf("%");
 	putnbr(printf("desde%4.07c%4.07s%4.07p%4.07d%4.07u%4.07xhasta\n", 'F', s, ptr, i, ui, ui));
 
-	//ft_printf("%-05");
+	//ft_printf("%");
 	putnbr(ft_printf("desde%4.07c%4.07s%4.07p%4.07d%4.07u%4.07xhasta\n", 'F', s, ptr, i, ui, ui));
-
+	system("leaks Test_ex");
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 17:03:06 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 04:52:43 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 17:47:57 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int			get_number(const char *str)
 	int			i;
 	int			len;
 	char		*number;
+	char		*tmp;
 
 	i = 0;
 	len = 0;
@@ -66,7 +67,9 @@ int			get_number(const char *str)
 		len--;
 	}
 	number[i] = '\0';
-	return (ft_atoi(number));
+	tmp = number;
+	free(number);
+	return (ft_atoi(tmp));
 }
 
 /*
