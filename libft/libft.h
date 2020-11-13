@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 15:54:54 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 04:40:17 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 04:50:02 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <ctype.h>
 
-typedef	enum
+typedef enum
 {
-	FALSE, true
-}	bool;
+	FALSE, TRUE
+}	t_bool;
 
 typedef	struct	s_list
 {

@@ -6,7 +6,7 @@
 /*   By: mpascual <mpascual@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/15 18:29:35 by mpascual          #+#    #+#             */
-/*   Updated: 2020/11/13 03:16:15 by mpascual         ###   ########.fr       */
+/*   Updated: 2020/11/13 04:53:30 by mpascual         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			put_di(int nb, int len, t_var *var)
 	return (0);
 }
 
-void		di_width(int len, bool neg, t_var *var)
+void		di_width(int len, t_bool neg, t_var *var)
 {
 	while (var->width > len)
 	{
@@ -57,7 +57,7 @@ void		print_di(int nb, t_var *var)
 {
 	int		len;
 	int		pre_printed;
-	bool	neg;
+	t_bool	neg;
 
 	len = (var->is_precision && !var->precision) ? 0 : ft_nbrlen(nb, 10);
 	pre_printed = (var->precision > len) ? (var->precision - len) : 0;
