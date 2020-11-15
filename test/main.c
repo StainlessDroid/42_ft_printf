@@ -44,7 +44,7 @@ int     main(void)
 
 	//ft_printf("%");
 	putnbr(ft_printf("desde%4.07c%4.07s%4.07p%4.07d%4.07u%4.07xhasta\n", 'F', s, ptr, i, ui, ui));
-	system("leaks Test_ex");
+	//system("leaks Test_ex");
 	return (0);
 }
 
